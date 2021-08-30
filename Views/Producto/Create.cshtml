@@ -1,0 +1,37 @@
+@model practica01.Models.Producto
+
+@{
+    ViewData["title"] = "Producto";
+}
+
+<h1>@ViewData["title"]</h1>
+
+<div class="text-center">
+    <h1 class="display-4"> REGISTRO DE VENTA DE VIDEO JUEGOS </h1>
+
+    <form asp-controller="Producto" asp-action="Create">
+
+        <label class="form-label"></label>
+        <input class="form-control form-control-sm" type="text" name="nombre" placeholder="Inserte nombre" />
+
+        <label class="form-label"></label>
+        <input class="form-control form-control-sm" type="text" name="categoria" placeholder="Inserte categoria" />
+
+        <label class="form-label"></label>
+        <input class="form-control form-control-sm" type="text" name="precio" placeholder="Inserte precio">
+
+        <label class="form-label"></label>
+        <input class="form-control form-control-sm" type="text" name="descuento" placeholder="Inserte descuento">
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </div>
+
+    </form>
+
+    <h1>@ViewData["Message"] </h1>
+
+    <div>
+        <a asp-controller="Producto" asp-Action="Index">Regresar a la lista</a>
+    </div>
+</div>

@@ -26,9 +26,9 @@ namespace practica01.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Producto objProducto)
+        public IActionResult Create(Producto objproducto)
         {
-            _context.Add(objProducto);
+            _context.Add(objproducto);
             _context.SaveChanges();
             ViewData["Message"] = "El producto ya esta registrado";
             //return RedirectToAction(nameof(Index));
@@ -38,26 +38,26 @@ namespace practica01.Controllers
         
         public IActionResult Edit(int id)
         {
-            Producto objProducto = _context.Dataproducto.Find(id);
-            if(objProducto == null){
+            Producto objproducto = _context.Dataproducto.Find(id);
+            if(objproducto == null){
                 return NotFound();
             }
-            return View(objProducto);
+            return View(objproducto);
         }
 
         [HttpPost]
-        public IActionResult Edit(int id,[Bind("id,nombre, categoria, precio, descuento")] Producto objProducto)
+        public IActionResult Edit(int id,[Bind("id,nombre, categoria, precio, descuento")] Producto objproducto)
         {
-             _context.Update(objProducto);
+             _context.Update(objproducto);
              _context.SaveChanges();
               ViewData["Message"] = "El producto ya esta actualizado";
-             return View(objProducto);
+             return View(objproducto);
         }
 
         public IActionResult Delete(int id)
         {
-            Producto objProducto = _context.Dataproducto.Find(id);
-            _context.Dataproducto.Remove(objProducto);
+            Producto objproducto = _context.Dataproducto.Find(id);
+            _context.Dataproducto.Remove(objproducto);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
